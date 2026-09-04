@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطة التسويقية الربعية — أزهار بانسيه</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Tahoma', Arial, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fdf6f8; direction: rtl; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 14px; width: 100%; }
+
+.header { background: linear-gradient(135deg, #4a0e27 0%, #8b1249 55%, #c2185b 100%); color: white; padding: 36px 20px; border-radius: 16px; margin-bottom: 24px; text-align: center; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 60%); }
+.header .brand { font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 6px; position: relative; letter-spacing: 1px; }
+.header .brand span { color: #f4c95d; }
+.header h1 { font-size: 16px; font-weight: 500; opacity: 0.85; margin-bottom: 6px; position: relative; }
+.header .date { font-size: 13px; opacity: 0.6; position: relative; }
+.accent-bar { height: 4px; width: 80px; background: #f4c95d; margin: 12px auto; border-radius: 2px; }
+.platform-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.14); border-radius: 24px; padding: 8px 16px; font-size: 13px; font-weight: 700; margin-top: 12px; position: relative; flex-wrap: wrap; justify-content: center; }
+
+.section { background: white; border-radius: 12px; padding: 20px 16px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden; }
+.section-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; border-right: 5px solid #c2185b; padding-right: 12px; }
+.section-sub { font-size: 13px; color: #64748b; margin-bottom: 18px; padding-right: 17px; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+@media (min-width: 600px) { .metrics-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
+.metric-card { padding: 16px; border-radius: 10px; border: 2px solid #f3e0e6; position: relative; }
+.metric-card.dark { background: linear-gradient(135deg, #4a0e27, #2d0818); color: white; border: none; }
+.metric-card.rose { background: linear-gradient(135deg, #c2185b, #880e4f); color: white; border: none; }
+.metric-card.green { background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; border: none; }
+.metric-card.blue { background: linear-gradient(135deg, #1565c0, #0d47a1); color: white; border: none; }
+.metric-card.muted { background: #faf3f5; }
+.metric-card.gold { background: linear-gradient(135deg, #b8860b, #8a6508); color: white; border: none; }
+.metric-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; margin-bottom: 4px; }
+.metric-value { font-size: 20px; font-weight: 700; line-height: 1.1; }
+.metric-sub { font-size: 11px; opacity: 0.75; margin-top: 4px; }
+
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+.cmp-table th { background: #4a0e27; color: white; padding: 10px 12px; text-align: right; font-size: 11px; font-weight: 700; }
+.cmp-table td { padding: 12px; border-bottom: 1px solid #f3e0e6; vertical-align: middle; }
+.cmp-table tr:last-child td { border-bottom: none; }
+.cmp-table tr.total td { background: #fdf0f4; font-weight: 700; }
+.cmp-table tr.grand-total td { background: #4a0e27; color: white; font-weight: 700; }
+
+.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.badge-rose { background: #fde4ee; color: #9d174d; }
+.badge-gold { background: #fef3c7; color: #92400e; }
+.badge-green { background: #d1fae5; color: #065f46; }
+.badge-blue { background: #dbeafe; color: #1e40af; }
+
+.insight-box { border-radius: 10px; padding: 20px; margin-bottom: 16px; border-right: 4px solid; }
+.insight-box.critical { background: #fff5f5; border-color: #e53935; }
+.insight-box.warning { background: #fffbeb; border-color: #f59e0b; }
+.insight-box.success { background: #f0fdf4; border-color: #22c55e; }
+.insight-box.info { background: #fdf0f4; border-color: #c2185b; }
+.insight-box.gold { background: #fffaf0; border-color: #b8860b; }
+.insight-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.critical .insight-title { color: #991b1b; }
+.warning .insight-title { color: #92400e; }
+.success .insight-title { color: #14532d; }
+.info .insight-title { color: #9d174d; }
+.gold .insight-title { color: #7c5a05; }
+.insight-text { font-size: 13px; line-height: 1.7; color: #475569; }
+.action-list { margin-top: 10px; margin-right: 16px; }
+.action-list li { font-size: 13px; color: #334155; margin-bottom: 4px; }
+
+.platform-card { border-radius: 12px; padding: 18px; margin-bottom: 14px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.07); border-right: 4px solid #c2185b; }
+.platform-card-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.platform-card-row { display: flex; justify-content: space-between; font-size: 12.5px; color: #475569; padding: 6px 0; border-bottom: 1px dashed #f1e2e8; gap: 10px; }
+.platform-card-row:last-child { border-bottom: none; }
+.platform-card-row b { color: #1a1a1a; white-space: nowrap; }
+
+.pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.pillar-card { padding: 16px; border-radius: 10px; background: #faf3f5; border-right: 4px solid #c2185b; }
+.pillar-title { font-size: 13px; font-weight: 700; color: #7c1642; margin-bottom: 6px; }
+.pillar-text { font-size: 12px; color: #475569; line-height: 1.7; }
+
+.objective-list { display: flex; flex-direction: column; gap: 12px; }
+.objective-item { padding: 16px 18px; border-radius: 10px; background: #faf3f5; border-right: 4px solid #c2185b; display: flex; gap: 14px; align-items: flex-start; }
+.objective-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,#c2185b,#880e4f); color: white; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.objective-body { flex: 1; }
+.objective-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.objective-title { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.objective-text { font-size: 12.5px; color: #475569; line-height: 1.7; }
+
+.idea-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.idea-card { padding: 16px; border-radius: 10px; background: #faf3f5; border-right: 4px solid #b8860b; }
+.idea-num { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: #b8860b; color: white; font-size: 11px; font-weight: 700; align-items: center; justify-content: center; margin-left: 6px; }
+.idea-title { font-size: 13px; font-weight: 700; color: #7c5a05; margin-bottom: 6px; display: flex; align-items: center; }
+.idea-text { font-size: 12px; color: #475569; line-height: 1.7; }
+
+@media (min-width: 600px) {
+    .header .brand { font-size: 42px; }
+    .header h1 { font-size: 20px; }
+    .metric-value { font-size: 26px; }
+    .section { padding: 28px 24px; }
+    .section-title { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="brand">أزهار <span>بانسيه</span></div>
+        <h1>الخطة التسويقية الربعية</h1>
+        <div class="accent-bar"></div>
+        <div class="platform-badge">🌸 Google Ads · Meta · TikTok — إجمالي الميزانية 6,000 ر.س شهرياً</div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- OBJECTIVES -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #c2185b;">
+        <h2 class="section-title" style="border-color:#c2185b;">🎯 أهداف الخطة عبر قمع التسويق</h2>
+        <div class="section-sub">تغطية متوازنة لمراحل قمع التسويق الثلاث: الوعي (TOFU)، الاعتبار (MOFU)، والتحويل (BOFU)</div>
+        <div class="objective-list">
+            <div class="objective-item">
+                <div class="objective-num">1</div>
+                <div class="objective-body">
+                    <div class="objective-head"><span class="objective-title">التحويل والمبيعات</span><span class="badge badge-rose">BOFU</span></div>
+                    <div class="objective-text">توجيه حملات إعلانية نحو الجمهور الأقرب لاتخاذ قرار الشراء، بهدف زيادة عدد الطلبات الفعلية عبر متجر أزهار بانسيه الإلكتروني.</div>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-num">2</div>
+                <div class="objective-body">
+                    <div class="objective-head"><span class="objective-title">الوعي بالعلامة التجارية</span><span class="badge badge-rose">TOFU</span></div>
+                    <div class="objective-text">ترسيخ حضور "أزهار بانسيه" في ذهن الجمهور المستهدف (Brand Recall)، بحيث تكون العلامة الأولى التي تُذكر عند التفكير في شراء الورد والهدايا.</div>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-num">3</div>
+                <div class="objective-body">
+                    <div class="objective-head"><span class="objective-title">الوعي بنقاط البيع</span><span class="badge badge-rose">MOFU</span></div>
+                    <div class="objective-text">تعريف الجمهور بمواقع المحلات الفعلية (Local Awareness)، وربط الحضور الرقمي بالتجربة داخل المتجر.</div>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-num">4</div>
+                <div class="objective-body">
+                    <div class="objective-head"><span class="objective-title">نمو الجمهور</span><span class="badge badge-rose">Audience Growth</span></div>
+                    <div class="objective-text">زيادة عدد المتابعين ومعدلات المشاهدة على حسابات التواصل الاجتماعي (Instagram وTikTok)، لبناء قاعدة جمهور طويلة الأمد.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- CURRENT PROBLEMS -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #e53935;">
+        <h2 class="section-title" style="border-color:#e53935;">🔴 نقطة البداية والتحديات الحالية</h2>
+
+        <div class="insight-box critical">
+            <div class="insight-title">🔴 الحسابات الإعلانية جديدة تماماً</div>
+            <div class="insight-text">حسابات Google Ads وMeta Ads Manager وTikTok Ads لا تملك أي سجل أداء سابق (Historical Performance). تحتاج كل منصة إلى فترة تعلّم (Learning Phase) تُجمّع خلالها الخوارزمية إشارات كافية عن الجمهور المستجيب، قبل الوصول إلى استقرار في تكلفة النتيجة.</div>
+            <ul class="action-list">
+                <li>تكلفة الاكتساب (CPA) في البداية أعلى نسبياً من المستهدف طويل المدى، وهذا سلوك متوقع لأي حساب جديد وليس مؤشر ضعف في الاستراتيجية</li>
+            </ul>
+        </div>
+
+        <div class="insight-box critical">
+            <div class="insight-title">🔴 وسم التتبع (Pixel/Tag) على المتجر جديد</div>
+            <div class="insight-text">لا تتوفر بيانات تحويل تاريخية (Historical Conversion Data) على متجر "أزهار بانسيه". الفترة الأولى من تشغيل كل منصة ستُخصَّص لبناء قاعدة بيانات تحويل نظيفة تُغذّي بها الخوارزمية، وليست فترة قياس نتائج نهائية.</div>
+        </div>
+
+        <div class="insight-box warning">
+            <div class="insight-title">⚠️ توزيع ميزانية محدودة على قنوات وأهداف متعددة</div>
+            <div class="insight-text">توزيع الميزانية على ثلاث منصات وأربعة أهداف تسويقية مختلفة يُبطئ خروج كل حملة من مرحلة التعلّم. أي إيقاف مؤقت أو تعديل مبكر على الاستهداف أو الميزانية يُعيد الحملة لبداية مرحلة التعلّم من جديد، لذلك سنتجنّب أي تعديل غير ضروري خلال الفترة الأولى تحديداً.</div>
+        </div>
+
+        <div class="insight-box gold">
+            <div class="insight-title">💡 الأثر على هذه الخطة</div>
+            <div class="insight-text">الأرقام والتوزيع الواردة في هذه الخطة توجيهية، ومبنية على معايير قياسية للسوق والقطاع (Industry Benchmarks) وليس على بيانات تاريخية للمتجر. سيتم إعادة معايرة التوزيع بين المنصات والحملات فور توفر بيانات أداء فعلية.</div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- BUDGET ALLOCATION -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #b8860b;">
+        <h2 class="section-title" style="border-color:#b8860b;">💰 توزيع الميزانية الشهرية — 6,000 ر.س</h2>
+        <div class="section-sub">أربعة محاور رئيسية بنسب متساوية — سيُعاد ضبط التوزيع بناءً على الأداء الفعلي فور توفر بيانات كافية</div>
+
+        <div class="metrics-grid">
+            <div class="metric-card rose">
+                <div class="metric-label">Google Ads — سيرش</div>
+                <div class="metric-value">1,500 ر.س</div>
+                <div class="metric-sub">25% من الميزانية</div>
+            </div>
+            <div class="metric-card dark">
+                <div class="metric-label">TikTok — حملات الأداء</div>
+                <div class="metric-value">1,500 ر.س</div>
+                <div class="metric-sub">25% من الميزانية</div>
+            </div>
+            <div class="metric-card gold">
+                <div class="metric-label">Meta — حملات الأداء</div>
+                <div class="metric-value">1,500 ر.س</div>
+                <div class="metric-sub">25% من الميزانية</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">حملات التوعية بالعلامة</div>
+                <div class="metric-value">1,500 ر.س</div>
+                <div class="metric-sub">25% من الميزانية</div>
+            </div>
+        </div>
+
+        <div style="font-size:13px;font-weight:700;color:#7c1642;margin-bottom:6px;">Google Ads — 1,500 ر.س</div>
+        <ul class="action-list" style="margin-bottom:20px;">
+            <li><strong>سيرش (Search)</strong> — التقاط طلب البحث المباشر ذو نية الشراء العالية</li>
+        </ul>
+
+        <div style="font-size:13px;font-weight:700;color:#7c1642;margin-bottom:6px;">TikTok — حملات الأداء — 1,500 ر.س</div>
+        <ul class="action-list" style="margin-bottom:20px;">
+            <li><strong>Traffic</strong> — زيادة الزيارات إلى المتجر الإلكتروني</li>
+            <li><strong>Conversion</strong> — الإضافة للسلة (Add to Cart)</li>
+            <li><strong>Conversion</strong> — المبيعات (Purchase)، حملة مستمرة تُرفع ميزانيتها تدريجياً كلما ثبتت كفاءتها</li>
+        </ul>
+
+        <div style="font-size:13px;font-weight:700;color:#7c1642;margin-bottom:6px;">Meta — حملات الأداء — 1,500 ر.س</div>
+        <ul class="action-list" style="margin-bottom:20px;">
+            <li><strong>Traffic</strong> — زيادة الزيارات إلى المتجر الإلكتروني</li>
+            <li><strong>Conversion</strong> — الإضافة للسلة (Add to Cart)</li>
+            <li><strong>Conversion</strong> — المبيعات (Purchase)، حملة مستمرة تُرفع ميزانيتها تدريجياً كلما ثبتت كفاءتها</li>
+        </ul>
+
+        <div style="font-size:13px;font-weight:700;color:#7c1642;margin-bottom:6px;">حملات التوعية بالعلامة التجارية — 1,500 ر.س</div>
+        <ul class="action-list">
+            <li><strong>توعية (Awareness)</strong> — TikTok + Meta</li>
+            <li><strong>مشاهدات فيديوهات (Video Views)</strong> — TikTok</li>
+            <li><strong>متابعين (Followers)</strong> — TikTok</li>
+            <li><strong>زيارات بروفايل (Profile Visits)</strong> — Instagram</li>
+        </ul>
+    </div>
+
+    <!-- ======================== -->
+    <!-- AD CONTENT PLAN -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #c2185b;">
+        <h2 class="section-title" style="border-color:#c2185b;">🎬 المحتوى الإعلاني</h2>
+        <div class="section-sub">التركيز الأساسي على محتوى الفيديو باعتباره الأعلى أداءً على TikTok وMeta وأكثر توافقاً مع أهداف الحملات — مع تنويع الأفكار لتغطية أكثر من زاوية إبداعية</div>
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <div class="pillar-title">🌸 فيديو تنسيق الباقة (Time-lapse)</div>
+                <div class="pillar-text">توثيق خطوات تنسيق الباقة من البداية للنهاية بسرعة عرض متسارعة — يُبرز الحرفية وجودة المنتج.</div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">🎁 فيديو Unboxing</div>
+                <div class="pillar-text">فتح الباقة أو الهدية من منظور العميل عند الاستلام، لإبراز جودة التغليف وتفاصيل التجربة.</div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">💬 فيديو تقييم عميل حقيقي (UGC)</div>
+                <div class="pillar-text">لحظة استلام حقيقية أو تقييم بصوت العميل نفسه — يرفع الثقة والمصداقية أكثر من أي إعلان مباشر.</div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">🏪 فيديو يوم في حياة المحل</div>
+                <div class="pillar-text">لقطات من داخل المحل وفريق التنسيق أثناء العمل — يخدم هدف الوعي بنقاط البيع الفعلية.</div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">🎉 فيديو مرتبط بمناسبة</div>
+                <div class="pillar-text">محتوى يربط تشكيلة معينة بمناسبة قادمة (اجتماعية أو وطنية أو موسمية) فور تحديد توقيتها.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- OFFLINE TO ONLINE IDEAS -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #b8860b;">
+        <h2 class="section-title" style="border-color:#b8860b;">🔗 أفكار لربط المحلات الأوفلاين بالمتجر الأونلاين</h2>
+        <div class="section-sub">أفكار عملية لتحويل زوار المحل الفعلي إلى عملاء متكررين على الموقع الإلكتروني</div>
+        <div class="idea-grid">
+            <div class="idea-card">
+                <div class="idea-title"><span class="idea-num">1</span>كود QR على الفاتورة والواجهة</div>
+                <div class="idea-text">يوجّه مباشرة لصفحة المنتجات الأكثر مبيعاً على الموقع لتسهيل إعادة الطلب.</div>
+            </div>
+            <div class="idea-card">
+                <div class="idea-title"><span class="idea-num">2</span>خصم حصري للطلب أونلاين فقط</div>
+                <div class="idea-text">يُعلن عنه داخل المحل عبر لافتة أو بطاقة، لتحفيز أول تجربة شراء عبر الموقع.</div>
+            </div>
+            <div class="idea-card">
+                <div class="idea-title"><span class="idea-num">3</span>برنامج ولاء يُفعَّل أونلاين فقط</div>
+                <div class="idea-text">نقاط تُسجَّل من مشتريات المحل، وتُستبدل حصراً عبر حساب العميل على الموقع الإلكتروني.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- OFFERS & RETARGETING IDEAS -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #0891b2;">
+        <h2 class="section-title" style="border-color:#0891b2;">🎁 أفكار العروض وإعادة الاستهداف</h2>
+
+        <div class="section-sub" style="margin-bottom:10px;">أفكار العروض الترويجية</div>
+        <div class="idea-grid" style="margin-bottom:22px;">
+            <div class="idea-card" style="border-color:#c2185b;">
+                <div class="idea-title" style="color:#7c1642;"><span class="idea-num" style="background:#c2185b;">1</span>خصم أول طلب أونلاين</div>
+                <div class="idea-text">لعملاء المحل الفعلي تحديداً، لتحفيز أول تجربة شراء عبر الموقع.</div>
+            </div>
+            <div class="idea-card" style="border-color:#c2185b;">
+                <div class="idea-title" style="color:#7c1642;"><span class="idea-num" style="background:#c2185b;">2</span>شحن مجاني بحد أدنى للطلب</div>
+                <div class="idea-text">يحفّز العميل على رفع قيمة سلته للوصول للحد المطلوب.</div>
+            </div>
+            <div class="idea-card" style="border-color:#c2185b;">
+                <div class="idea-title" style="color:#7c1642;"><span class="idea-num" style="background:#c2185b;">3</span>عرض فلاش لمدة 24 ساعة</div>
+                <div class="idea-text">يُطلق عبر السوشيال ميديا لتحفيز قرار شراء فوري ومحدود المدة.</div>
+            </div>
+            <div class="idea-card" style="border-color:#c2185b;">
+                <div class="idea-title" style="color:#7c1642;"><span class="idea-num" style="background:#c2185b;">4</span>برنامج إحالة (Referral)</div>
+                <div class="idea-text">خصم للعميل الحالي وخصم آخر للصديق الجديد عند أول طلب له.</div>
+            </div>
+            <div class="idea-card" style="border-color:#c2185b;">
+                <div class="idea-title" style="color:#7c1642;"><span class="idea-num" style="background:#c2185b;">5</span>خصم استرجاع السلة المتروكة</div>
+                <div class="idea-text">كود خصم بسيط يُرسل تلقائياً لمن أضاف منتجاً للسلة ولم يُكمل الشراء.</div>
+            </div>
+        </div>
+
+        <div class="section-sub" style="margin-bottom:10px;">أفكار إعادة الاستهداف (Retargeting)</div>
+        <div class="idea-grid">
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">1</span>زوار الموقع غير المشترين</div>
+                <div class="idea-text">إعلانات ديناميكية تعرض نفس المنتجات التي تصفحها العميل دون إتمام الشراء.</div>
+            </div>
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">2</span>من أضافوا للسلة ولم يشتروا</div>
+                <div class="idea-text">رسالة تذكير مباشرة مع خصم بسيط لإتمام عملية الشراء المتوقفة.</div>
+            </div>
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">3</span>متفاعلو الفيديو وزوار البروفايل</div>
+                <div class="idea-text">استهداف من شاهد فيديوهات TikTok أو زار بروفايل Instagram بإعلان تحويل مباشر للمتجر.</div>
+            </div>
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">4</span>تذكير المناسبات للعملاء السابقين</div>
+                <div class="idea-text">إعادة استهداف من اشترى سابقاً قبل مناسبة متكررة سنوياً بنفس التوجه (عيد ميلاد، مناسبة اجتماعية).</div>
+            </div>
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">5</span>جمهور مشابه (Lookalike)</div>
+                <div class="idea-text">يُبنى من قائمة المشترين الفعليين فور توفر عدد كافٍ من الطلبات لتوسيع قاعدة العملاء المحتملين.</div>
+            </div>
+            <div class="idea-card" style="border-color:#0891b2;">
+                <div class="idea-title" style="color:#0e7490;"><span class="idea-num" style="background:#0891b2;">6</span>إعادة استهداف عبر واتساب</div>
+                <div class="idea-text">لمن تواصل واستفسر عبر واتساب ولم يُكمل الشراء، برسالة متابعة تحتوي رابط الطلب المباشر.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- EXPECTED KPIs -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #1b5e20;">
+        <h2 class="section-title" style="border-color:#1b5e20;">📊 مؤشرات الأداء الرئيسية (KPIs)</h2>
+        <div class="section-sub">أهداف توجيهية وليست أرقاماً مضمونة — سيتم معايرتها فور توفر بيانات أداء فعلية</div>
+        <div class="insight-box info">
+            <div class="insight-title">💡 منهجية قياس النجاح</div>
+            <div class="insight-text">سنعتمد على أرقام متجر زد كمرجع أساسي للمبيعات الفعلية والعائد على الإنفاق الإعلاني (ROAS)، وعلى مؤشرات كل منصة (معدل النقر CTR، تكلفة الإضافة للسلة، تكلفة الطلب CPA، الوصول Reach، مشاهدات الفيديو، ومعدل نمو المتابعين) لقياس بقية الأهداف. التقرير الشهري سيقارن هذه المؤشرات بالمستهدف مع تحليل الانحراف وأسبابه.</div>
+        </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- WHAT WE WILL WORK ON -->
+    <!-- ======================== -->
+    <div class="section" style="border-top: 4px solid #4a0e27;">
+        <h2 class="section-title" style="border-color:#4a0e27;">🛠️ ما سيتم العمل عليه</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:24px;">
+            <div style="padding:16px;background:#fdf0f4;border-radius:10px;border-right:4px solid #c2185b;">
+                <div style="font-size:13px;font-weight:700;color:#7c1642;margin-bottom:8px;">1. إطلاق كامل القنوات</div>
+                <div style="font-size:12px;color:#7c1642;line-height:1.7;">سنُطلق حملات Google Ads وMeta وTikTok، بالإضافة لحملات التوعية بالعلامة، بالتوزيع المتفق عليه، وسنُبقيها دون تعديل مبكر خلال الفترة الأولى لحماية مرحلة التعلّم.</div>
+            </div>
+            <div style="padding:16px;background:#f0fdf4;border-radius:10px;border-right:4px solid #22c55e;">
+                <div style="font-size:13px;font-weight:700;color:#14532d;margin-bottom:8px;">2. متابعة دورية للأداء</div>
+                <div style="font-size:12px;color:#064e3b;line-height:1.7;">سنراجع المؤشرات بشكل دوري، ونُعدّل التوزيع بين القنوات والحملات فور توفر بيانات كافية لاتخاذ قرار موثوق.</div>
+            </div>
+            <div style="padding:16px;background:#eff6ff;border-radius:10px;border-right:4px solid #2563eb;">
+                <div style="font-size:13px;font-weight:700;color:#1e40af;margin-bottom:8px;">3. تقرير أداء دوري</div>
+                <div style="font-size:12px;color:#1e3a8a;line-height:1.7;">سنُسلّم تقريراً دورياً بنفس أسلوب التقارير المعتمدة، يقارن الأداء الفعلي بالمستهدف ويقترح خطوات التحسين التالية.</div>
+            </div>
+        </div>
+
+        <div class="section-sub" style="margin-bottom:10px;padding-right:0;">اختبارات الأداء المخطط لها</div>
+        <div class="idea-grid">
+            <div class="idea-card" style="border-color:#4a0e27;">
+                <div class="idea-title" style="color:#2d0818;"><span class="idea-num" style="background:#4a0e27;">1</span>اختبار المحتوى الإعلاني (Creative Test)</div>
+                <div class="idea-text">تشغيل نفس الجمهور بأنواع مختلفة من المحتوى (صور ثابتة / فيديو UGC / كاروسيل) لتحديد الأعلى أداءً.</div>
+            </div>
+            <div class="idea-card" style="border-color:#4a0e27;">
+                <div class="idea-title" style="color:#2d0818;"><span class="idea-num" style="background:#4a0e27;">2</span>اختبار الجمهور المستهدف (Target Audience Test)</div>
+                <div class="idea-text">تحليل نتائج الحملات بأنواع استهداف مختلفة (جمهور عام / جمهور مشابه / عمر وموقع جغرافي) بعد فترة كافية، وتحويل الميزانية نحو الأعلى كفاءة.</div>
+            </div>
+            <div class="idea-card" style="border-color:#4a0e27;">
+                <div class="idea-title" style="color:#2d0818;"><span class="idea-num" style="background:#4a0e27;">3</span>اختبار إعدادات الحملة (Campaign Settings Test)</div>
+                <div class="idea-text">تجربة تعديلات على بعض إعدادات الحملة مع الإبقاء على نفس المحتوى الإعلاني، لعزل أثر الإعدادات على النتائج.</div>
+            </div>
+            <div class="idea-card" style="border-color:#4a0e27;">
+                <div class="idea-title" style="color:#2d0818;"><span class="idea-num" style="background:#4a0e27;">4</span>اختبار رابط الموقع (صفحة المنتج مقابل صفحة التصنيف)</div>
+                <div class="idea-text">تشغيل نفس المحتوى ونفس الجمهور مع رابطين مختلفين (صفحة المنتج مباشرة / صفحة التصنيف)، ومقارنة معدل التحويل بينهما.</div>
+            </div>
+            <div class="idea-card" style="border-color:#4a0e27;">
+                <div class="idea-title" style="color:#2d0818;"><span class="idea-num" style="background:#4a0e27;">5</span>اختبار الكتالوج (Catalog Test)</div>
+                <div class="idea-text">تشغيل نسخة Advantage+ Shopping بالكتالوج الكامل مقابل نسخة بمجموعة مختارة من المنتجات الأكثر مبيعاً، لمقارنة الكفاءة.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="text-align:center;padding:20px;color:#94a3b8;font-size:12px;">
+        إعداد: <a href="https://wa.me/201558636063" style="color:#c2185b;text-decoration:none;font-weight:700;">Ahmed Shaaban — أحمد شعبان</a> · أخصائي تسويق الأداء (Performance Marketer)
+    </div>
+
+</div>
+</body>
+</html>
